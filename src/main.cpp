@@ -208,7 +208,7 @@ int main(const int argc, const char* const argv[]) {
                     UdpSocket::create(Socket::destFromString("127.0.0.1", 1024), ref);
               });
     } else {
-        std::cerr << "Use the source Luke\n";
+        std::cerr << "Usage: " << argv[0] << "[no args - run daemon | command command ]\n";
     }
     return 0;
 }

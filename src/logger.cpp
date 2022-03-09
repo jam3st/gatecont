@@ -2,6 +2,7 @@
 #include "logger.hpp"
 #include "utils.hpp"
 #include "clock.hpp"
+#include <syslog.h>
 
 namespace Sb {
       Logger* Logger::theLogger = nullptr;
@@ -14,6 +15,7 @@ namespace Sb {
                   throw std::runtime_error("start called when already started");
             }
             Logger::theLogger = new Logger;
+            openlog("gatecont", LOG_PID|LOG_CONS, LOG_USER);
       }
 
       void Logger::setMask(const LogType mask) {
@@ -29,6 +31,7 @@ namespace Sb {
                   throw std::runtime_error("stop called before start");
             }
             std::unique_ptr<Logger> tmp(Logger::theLogger);
+            closelog();
             Logger::theLogger = nullptr;
       }
 
@@ -90,7 +93,7 @@ namespace Sb {
             lock.unlock();
             os << "\t" << what << "\n";
             lock.lock();
-            std::cerr << line.str();
+            syslog(LOG_LOCAL0, line.str().c_str());
             lock.unlock();
       }
 }
