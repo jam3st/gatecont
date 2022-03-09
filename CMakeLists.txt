@@ -7,3 +7,5 @@ set(SOURCE_FILES src/clock.cpp src/engine.cpp src/event.cpp src/logger.cpp src/m
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -std=c++14  -g3 -O0  -ggdb ")
 set(CMAKE_EXE_LINKER_FLAGS "${BOTAN_LIB} ${TCM_LIB}")
 add_executable(${PROJECT} ${SOURCE_FILES} ${HEADER_FILES})
+install(TARGETS ${PROJECT})
+

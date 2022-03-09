@@ -10,7 +10,6 @@ namespace Sb {
       class UdpSocketIf {
       public:
             friend class UdpSocket;
-            [[deprecated("cOnnnect is useless")]]
             virtual void connected(const InetDest&) = 0;
             virtual void disconnected() = 0;
             virtual void received(InetDest const&, Bytes const&) = 0;
