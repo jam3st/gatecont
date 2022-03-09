@@ -61,10 +61,10 @@ public:
         } else if(Util == datagram) {
             broadcast(Util);
         } else if(Bing == datagram) {
-            auto ignore = system("/jffs/asterisk/bin/bing.sh");
+            auto ignore = system("/etc/lbin/bing.sh");
         } else if(Ring == datagram) {
             sendReply(addr, Sing);
-            auto ignore = system("/jffs/asterisk/bin/ring.sh");
+            auto ignore = system("/etc/lbin/ring.sh");
         } else {
             logDebug(addr.toString() + " " + std::string( reinterpret_cast<char const*>(datagram.data()), datagram.size() ));
         }
