@@ -56,6 +56,8 @@ public:
             broadcast(Clwe);
         } else if(Rand == datagram) {
             broadcast(Rand);
+        } else if(User == datagram) {
+            broadcast(User);
         } else if(Clse == datagram) {
             broadcast(Clse);
         } else if(Util == datagram) {
@@ -142,6 +144,7 @@ private:
     const Bytes Rand{ 'r', 'a', 'n', 'd'};
     const Bytes Util{ 'u', 't', 'i', 'l'};
     const Bytes Clse{ 'c', 'l', 's', 'e'};
+    const Bytes User{ 'u', 's', 'e', 'r'};
 
     const Bytes Upda{ 'u', 'p', 'd', 'a'};
 
