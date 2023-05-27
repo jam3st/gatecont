@@ -62,6 +62,8 @@ public:
             broadcast(Clse);
         } else if(Util == datagram) {
             broadcast(Util);
+        } else if(Noop == datagram) {
+            broadcast(Noop);
         } else if(Bing == datagram) {
             auto ignore = system("/etc/lbin/bing.sh");
         } else if(Ring == datagram) {
@@ -145,6 +147,8 @@ private:
     const Bytes Util{ 'u', 't', 'i', 'l'};
     const Bytes Clse{ 'c', 'l', 's', 'e'};
     const Bytes User{ 'u', 's', 'e', 'r'};
+
+    const Bytes Noop{ 'n', 'o', 'o', 'p'};
 
     const Bytes Upda{ 'u', 'p', 'd', 'a'};
 
